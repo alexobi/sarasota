@@ -1,0 +1,302 @@
+/* 
+    Document   : sarasota
+    Created on : Sep 13, 2013, 8:22:50 AM
+    Author     : aobi
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body{
+    font-family: calibri;
+}
+a{
+    color: #31b0d5;
+}
+button {
+    background:#31b0d5;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 7px 5px 7px;
+}
+button:hover {
+    background:#269abc;
+}
+#wrap {
+    background: #ffffff;
+}
+
+#header {
+    background-image: linear-gradient(bottom, rgb(53,171,204) 0%, rgb(49,175,213) 59%, rgb(52,163,194) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(53,171,204) 0%, rgb(49,175,213) 59%, rgb(52,163,194) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(53,171,204) 0%, rgb(49,175,213) 59%, rgb(52,163,194) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(53,171,204) 0%, rgb(49,175,213) 59%, rgb(52,163,194) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(53,171,204) 0%, rgb(49,175,213) 59%, rgb(52,163,194) 100%);
+
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0, rgb(53,171,204)),
+	color-stop(0.59, rgb(49,175,213)),
+	color-stop(1, rgb(52,163,194))
+    );
+    padding: 0 0 35px 0;
+    border-bottom: 7px solid #555555;
+}
+#header #navigate{
+    padding-left: 30px;
+    float: right;
+}
+#header .logohead{
+    text-align: center;
+}
+#header .lang{
+    color: #000000;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    padding-top: 13px;
+    
+}
+#header h1 a{
+    color: #ffffff;
+    font-size: 80px;
+    font-weight: bolder;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+}
+
+
+.form-control {
+    height: 30px;
+}
+
+#main-section{
+    background: #ffffff;
+    padding-top: 20px;
+}
+#main-section a{
+    color: #31b0d5;
+}
+
+#footer{
+    background: #555555;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-top: 4px solid #31b0d5;
+    color: #ffffff;
+}
+#footer .florida_logo{
+    background: url('http://localhost:8383/sarasota/images/florida_logo.png') no-repeat;
+    display: block;
+    height: 80px;
+    width: 160px;
+}
+#footer .florida_logo:hover{
+    background: url('http://localhost:8383/sarasota/images/florida_logo2.png') no-repeat;
+    display: block;
+    height: 80px;
+    width: 160px;
+}#footer .partnership_lang{
+    text-align: justify;
+    font-size: 15px;
+}
+#copyright{
+    background: #444444;
+    color: #ffffff;    
+}
+
+#content .meta{
+    width: 45%;
+    margin-left: 1px;
+    padding-left: 5px;
+    margin-bottom: 20px;
+    margin-top:20px;
+    background: #ffffff;
+    
+}
+#content .meta .col-md-8{
+    background: #ffffff;
+    padding: 5px 0 5px 5px;
+    border-radius: 4px;
+}
+#content .meta .col-md-4{
+    background: #31b0d5;
+    color: #ffffff;
+    padding: 5px 0 5px 10px;
+    border-top-left-radius:10px;
+}
+#content h3.heading{
+    background: rgba(0,0,0,0.6);
+    color: #ffffff;
+    padding: 5px 0 5px 5px;
+    border-radius: 4px;
+    font-size: 22px;
+}
+#content .posthead{
+    color: #31b0d5;
+}
+#content p.article-content{
+    font-size: 18px;
+    text-align: justify;
+}
+#content hr{
+    background: #999999;
+    color: #999999;
+    }
+    #content .latest-news {
+        font-size: 18px;
+    }
+    #content .latest-news ul{
+        list-style: none;
+        padding: 0;
+    }
+    .social-network{
+        list-style: none;
+    }
+    .social-network li{
+        float: left;
+        margin-right: 5px;
+    }
+    .social-network img{
+        width: 40px;
+        height: 40px;
+    }
+/*
+*
+*Toggle button menu for smaller screen
+*
+*/	
+.showMenu {
+		display:none;
+		background: #666;
+		padding: 10px 15px;
+		color:#000000;
+                font-weight: bold;
+                text-decoration: none;
+	}
+		
+/*
+*
+*Create markup for the navigation menu
+*
+*/
+.nav {
+		list-style: none;
+		*zoom: 1;
+		background:none;
+	}
+
+.nav:before {
+		content: " ";
+		display:table;
+	}
+	
+.nav:after {
+		content: " ";
+		display:table;
+		clear:both;
+	}
+
+.nav ul {
+		list-style:none;
+		width: 13em;
+	}
+
+.nav a {
+		padding:10px 15px;
+		color:#fff;
+                text-decoration: none;
+                font-size: 16px;
+	}
+		
+.nav li {
+		position: relative;
+	}
+
+.nav > li {
+		float: left;
+	}
+	
+.nav > li > .parent {
+		background-repeat:no-repeat;
+		background-position:right;
+	}
+	
+.nav > li > a {
+		display: block;
+                width: 100%;
+	}
+.nav > li > a:hover, .nav >li > a:focus {
+		background: none;
+	}
+.nav li ul {
+		position:absolute;
+		left: -9999px;
+	}
+
+.nav > li.hover > ul {
+		left: -40px;
+	}
+	
+.nav li li.hover ul {
+		left: 100%;
+		top: 0;
+	}
+	
+.nav li li a {
+		display:block;
+		background: rgba(0,0,0,0.5);
+		position: relative;
+		z-index: 100;
+		border-bottom: 1px solid rgba(225,225,225,0.4);
+	}
+	
+.nav li li li a {
+		background:rgba(0,0,0,0.5);
+		z-index:200;
+		border-top: 1px solid rgba(225,225,225,0.4);
+	}
+
+        .nav li li a:hover {
+            background: rgba(255,255,255,0.2);
+            color: #000000;
+        }
+/*
+*
+* Create style for media queries for smaller creens
+*
+*/
+
+@media screen and (max-width: 768px) {
+		.active {
+				display:block;	
+			}
+		
+		.nav > li {
+				float:none;
+			}
+		
+		.nav > li > .parent {
+				background-position: 95% 50%;
+			}
+			
+		.nav li li .parent {
+				background-repeat: no-repeat;
+				background-position: 95% 50%;
+			}
+			
+		.nav ul {
+				display: block;
+				width: 100%;	
+			}
+		.nav > li.hover > ul, .nav li li.hover ul {
+				position: static;	
+			}
+	}
+ .lavalamp-object {
+    background-color:rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
