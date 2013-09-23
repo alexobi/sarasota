@@ -18,6 +18,11 @@ get_header(); ?>
         <?php get_template_part( 'content'); ?>
     <?php  endwhile; ?>
     <?php endif;?>
+    <div class="navi">
+        <div class="right">
+            <?php previous_posts_link('Previous'); ?> / <?php next_posts_link('Next'); ?>
+        </div>
+    </div>
 </article>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
