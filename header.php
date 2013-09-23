@@ -15,6 +15,7 @@
         
         <title><?php wp_title( '|', true, 'right' ); ?></title>
         <link rel="profile" href="http://gmpg.org/xfn/11" />
+        <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" media="screen" />
        
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
         <?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
@@ -33,14 +34,23 @@
 						'container'=>'',
 						'theme_location' =>'primary',
 						'menu' => 'Primary Main',
-						'menu_class'=>'nav',
-                                                'menu_id' => 'navlist'
+						'menu_class'=>'nav'
 						)); ?>
                 </nav>
                 </div>
                 <div class="container">
-                    <h1 class="logohead container"><a href="<?php echo site_url(); ?>">Lorem Ipsum</a></h1>
-                    <p class="lang container">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus pharetra bibendum. Pellentesque dolor justo, suscipit nec turpis in, tempus aliquam nulla. Praesent pellentesque commodo sapien non iaculis.</p>
+                    <?php 
+                        global $sarasota_options;
+                        $sarasota_setting = get_option('sarasota_options',$sarasota_options);
+                    ?>
+                    <h1 class="logohead container"><a href="<?php echo site_url(); ?>">
+                    <?php if($sarasota_setting[$sarasota_header_option['header_title']] != '') {?>
+                    <?php echo $sarasota_setting[$sarasota_header_option['header_title']]; } else { ?>Lorem Ipsum<?php } ?></a></h1>
+                        
+                    <p class="lang container">
+                    <?php if($sarasota_setting[$sarasota_header_option['header_text']] != ''){ ?>
+                        <?php echo $sarasota_setting[$sarasota_header_option['header_text']]; } else { ?>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus pharetra bibendum. Pellentesque dolor justo, suscipit nec turpis in, tempus aliquam nulla. Praesent pellentesque commodo sapien non iaculis.<?php } ?></p>
                 </div>
             </header>
                 <section id="main-section" class="row">

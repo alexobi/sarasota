@@ -21,11 +21,11 @@
          <?php  wp_footer(); ?>
         </div><!--End of div#wrap -->
     </body>
-    <script src="js/lib/jquery-2.0.3.js" type="text/javascript"> </script>
-    <script src="bootstrap/js/bootstrap.js" type="text/javascript"> </script>
-    <script type="text/javascript" src="js/lib/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.lavalamp.js"></script>
-    <script src="js/sarasota.js" type="text/javascript"> </script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/lib/jquery-2.0.3.js" > </script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/bootstrap/js/bootstrap.js"> </script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/lib/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/lib/jquery.lavalamp.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/sarasota.js"> </script>
     
 </html>
 
