@@ -8,9 +8,9 @@
             if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
                 the_post_thumbnail('large', array('class' => 'img-thumbnail img-responsive'));
         } ?>
-        <p class="article-content"><?php the_content(); ?></p>
+        <div class="article-content"><?php the_content(); ?></div>
         <hr/>
-        TAGS: <?php the_tags(); ?>
+        <?php the_tags(); ?>
         <div class="navi">
             <div class="right">
                 <?php previous_post_link(); ?> / <?php next_post_link(); ?>
