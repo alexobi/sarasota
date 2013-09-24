@@ -1,3 +1,16 @@
+<?php 
+/**
+ * Header Template
+ *
+ *
+ * @file           header.php
+ * @package        Sarasota
+ * @author         DCI group
+ * @copyright      2013 DCI Group
+ * @version        Release: 1.0
+ * 
+ */?>
+
 <!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>
@@ -40,16 +53,17 @@
                 </div>
                 <div class="container">
                     <?php 
-                        global $sarasota_options;
-                        $sarasota_setting = get_option('sarasota_options',$sarasota_options);
+                        global $simplefluid_options;
+                        $settings = get_option( 'simplefluid_options', $simplefluid_options );
                     ?>
-                    <h1 class="logohead container"><a href="<?php echo site_url(); ?>">
-                    <?php if($sarasota_setting[$sarasota_header_option['header_title']] != '') {?>
-                    <?php echo $sarasota_setting[$sarasota_header_option['header_title']]; } else { ?>Lorem Ipsum<?php } ?></a></h1>
+                    <h1 class="logohead container">
+                    <a href="<?php echo site_url(); ?>">
+                    	<?php if($settings['header_title'] != '') {?>
+                    	<?php echo $settings['header_title']; } else { ?>Lorem Ipsum<?php } ?></a></h1>
                         
                     <p class="lang container">
-                    <?php if($sarasota_setting[$sarasota_header_option['header_text']] != ''){ ?>
-                        <?php echo $sarasota_setting[$sarasota_header_option['header_text']]; } else { ?>
+                    <?php if($settings['header_text'] != ''){ ?>
+                        <?php echo $settings['header_text']; } else { ?>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus pharetra bibendum. Pellentesque dolor justo, suscipit nec turpis in, tempus aliquam nulla. Praesent pellentesque commodo sapien non iaculis.<?php } ?></p>
                 </div>
             </header>

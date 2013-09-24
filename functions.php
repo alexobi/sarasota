@@ -1,4 +1,11 @@
 <?php
+/*
+Template Name: Sarasota Functions 
+Template URI: http://www.dcigroup.com/
+Description: Sarasota functions file
+Author: Alexander Obi (DCI Group)
+Author URI: http://www.dcigroup.com/
+*/
 
 //This is the call to the theme options
 require_once ( get_stylesheet_directory() . '/includes/sarasota-options.php' );
@@ -47,7 +54,7 @@ function sarasota_setup() {
 	set_post_thumbnail_size( 624, 9999 ); // Unlimited height, soft crop
 	
 	//Custom Header Support
-	add_theme_support( 'custom-header', $args );
+	add_theme_support( 'custom-header' );
 }
 add_action( 'after_setup_theme', 'sarasota_setup' );
 
@@ -77,13 +84,31 @@ function sarasota_widgets_init(){
             'name'=>__('Side-bar Widget', 'sarasota'),
             'id'=>'sidebar',
             'description'=>__('Appears on the index, post and pages templates','sarasota'),
-            'before_widget'=>'<div class="panel">',
+            'before_widget'=>'<div class="panel panel-default">',
             'after_widget'=>'</div>',
             'before_title'=>'<div class="panel-heading"><h3 class="panel-title">',
             'after_title'=>'</h3></div>'
         ));
  }
 add_action('widgets_init','sarasota_widgets_init');
+
+/*
+ * 
+ */
+function my_login_logo() { ?>
+    <style type="text/css">
+        body.login div#login h1 a {
+            background-image: url(<?php echo get_bloginfo( 'template_directory' ) ?>/images/login_logo.png);
+            padding-bottom: 30px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+function my_login_logo_url() {
+    return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
 
 /**
  * Removes div from wp_page_menu() and replace with ul.

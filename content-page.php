@@ -1,3 +1,13 @@
+<?php 
+/*
+ * @file           content-page.php
+ * @package        Sarasota
+ * @author         DCI group
+ * @copyright      2013 DCI Group
+ * @version        Release: 1.0
+*/
+?>
+
 <div class="well well-lg">
         <h3 class="posthead"><?php the_title(); ?></h3>
         <?php 
