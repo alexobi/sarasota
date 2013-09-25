@@ -1,10 +1,14 @@
 <?php
 /*
-Template Name: Sarasota Functions 
-Template URI: http://www.dcigroup.com/
-Description: Sarasota functions file
-Author: Alexander Obi (DCI Group)
-Author URI: http://www.dcigroup.com/
+ * Functions File
+ *
+ *
+ * @file           functions.php
+ * @package        Sarasota
+ * @author         DCI group
+ * @copyright      2013 DCI Group
+ * @version        Release: 1.0
+ * 
 */
 
 //This is the call to the theme options
