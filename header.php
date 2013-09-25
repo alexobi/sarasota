@@ -26,7 +26,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         
-        <title><?php wp_title( '|', true, 'right' ); ?></title>
+        <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
         <link rel="profile" href="http://gmpg.org/xfn/11" />
         <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" media="screen" />
        
