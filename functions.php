@@ -1,4 +1,14 @@
 <?php
+/*
+Template Name: Sarasota Functions 
+Template URI: http://www.dcigroup.com/
+Description: Sarasota functions file
+Author: Alexander Obi (DCI Group)
+Author URI: http://www.dcigroup.com/
+*/
+
+//This is the call to the theme options
+require_once ( get_stylesheet_directory() . '/includes/sarasota-options.php' );
 
 /*
  * To change this template, choose Tools | Templates
@@ -44,49 +54,9 @@ function sarasota_setup() {
 	set_post_thumbnail_size( 624, 9999 ); // Unlimited height, soft crop
 	
 	//Custom Header Support
-	add_theme_support( 'custom-header', $args );
+	add_theme_support( 'custom-header' );
 }
 add_action( 'after_setup_theme', 'sarasota_setup' );
-
-/**
- * Enqueue Styles and Scripts
- * 
-**/
-function sarasota_styles_scripts(){
-    global $wp_styles;
-    
-    /**
-     * Adds JavaScript to pages with the comment form to support
-     * sites with threaded comments (when in use).
-     */
-    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
-        wp_enqueue_script( 'comment-reply' );
-    
-    /**
-     * Loads our main stylesheet.
-    **/
-    wp_register_style('sarasota-style', get_stylesheet_uri());
-    wp_enqueue_style( 'sarasota-style');
-    
-    wp_register_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array( 'jquery' ), true );
-    wp_enqueue_script('bootstrap');
-    
-    wp_register_script('jquery_easing', get_template_directory_uri() . '/js/lib/jquery.easing.1.3.js', array( 'jquery' ), true);
-    wp_enqueue_script('jquery_easing');
-    
-    wp_register_script('jquery_lavalamp', get_template_directory_uri() . '/js/lib/jquery.lavalamp.js', array( 'jquery' ), true);
-    wp_enqueue_script('jquery_lavalamp');
-    
-    wp_register_script('sarasota-script', get_template_directory_uri() . '/js/sarasota.js', array( 'jquery' ), true);
-    wp_enqueue_script('sarasota-script');
-    
-    /**
-     * Loads the Internet Explorer specific stylesheet.
-     */
-    wp_enqueue_style( 'sarasota-ie', get_template_directory_uri() . '/css/ie.css', array( 'sarasota-style' ), '10');
-    $wp_styles->add_data( 'sarasota-ie', 'conditional', 'lt IE 9' );
-}
-add_action( 'wp_enqueue_scripts', 'sarasota_styles_scripts' );
 
 /*
 * Adds Excepts to Posts and Pages
@@ -100,7 +70,7 @@ add_action( 'init', 'my_add_excerpts_to_pages' );
 // Replaces the excerpt "more" text by a link
 function new_excerpt_more($more) {
     global $post;
-    return '<a class="moretag" href="'. get_permalink($post->ID) . '"><button>Read More</button></a>';
+    return '<br/><a class="moretag" href="'. get_permalink($post->ID) . '"><button>Read More</button></a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
@@ -114,11 +84,71 @@ function sarasota_widgets_init(){
             'name'=>__('Side-bar Widget', 'sarasota'),
             'id'=>'sidebar',
             'description'=>__('Appears on the index, post and pages templates','sarasota'),
-            'before_widget'=>'<div class="panel">',
+            'before_widget'=>'<div class="panel panel-default">',
             'after_widget'=>'</div>',
             'before_title'=>'<div class="panel-heading"><h3 class="panel-title">',
             'after_title'=>'</h3></div>'
         ));
  }
 add_action('widgets_init','sarasota_widgets_init');
+
+/*
+ * 
+ */
+function my_login_logo() { ?>
+    <style type="text/css">
+        body.login div#login h1 a {
+            background-image: url(<?php echo get_bloginfo( 'template_directory' ) ?>/images/login_logo.png);
+            padding-bottom: 30px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+function my_login_logo_url() {
+    return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+/**
+ * Removes div from wp_page_menu() and replace with ul.
+*/
+function responsive_wp_page_menu ($page_markup) {
+    preg_match('/^<div class=\"([a-z0-9-_]+)\">/i', $page_markup, $matches);
+        $divclass = $matches[1];
+        $replace = array('<div class="'.$divclass.'">', '</div>');
+        $new_markup = str_replace($replace, '', $page_markup);
+        $new_markup = preg_replace('/^<ul>/i', '<ul class="'.$divclass.'">', $new_markup);
+        return $new_markup; }
+
+add_filter('wp_page_menu', 'responsive_wp_page_menu');
+
+/**
+ * Replace various active menu class names with "active" or nothing
+ *
+ */
+function roots_wp_nav_menu($text) {
+  $replace = array(
+        'sub-menu'     => '',
+	'menu-item'  => '',
+	'menu-item-type-post_type'  => '',
+	'menu-item-object-page'  => '',
+	'menu-item-13'  => '',
+	'menu-item-type-custom' => '',
+	'menu-item-object-custom' => '',
+	'current-menu-item'=> '',
+	'current_page_item' => '',
+	'menu-item-home menu-item-11'=> '',
+        'menu-menu'=>'navlist',
+        '-type-post_type'=>'',
+        '-object-page'=>'',
+        '-12'=>'',
+        '-13'=>''
+  );
+
+  $text = str_replace(array_keys($replace), $replace, $text);
+  return $text;
+}
+add_filter('wp_nav_menu', 'roots_wp_nav_menu');
+
 ?>

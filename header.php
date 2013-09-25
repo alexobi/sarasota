@@ -1,3 +1,16 @@
+<?php 
+/**
+ * Header Template
+ *
+ *
+ * @file           header.php
+ * @package        Sarasota
+ * @author         DCI group
+ * @copyright      2013 DCI Group
+ * @version        Release: 1.0
+ * 
+ */?>
+
 <!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>
@@ -34,14 +47,24 @@
 						'container'=>'',
 						'theme_location' =>'primary',
 						'menu' => 'Primary Main',
-						'menu_class'=>'nav',
-                                                'menu_id' => 'navlist'
+						'menu_class'=>'nav'
 						)); ?>
                 </nav>
                 </div>
                 <div class="container">
-                    <h1 class="logohead container"><a href="<?php echo site_url(); ?>">Lorem Ipsum</a></h1>
-                    <p class="lang container">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus pharetra bibendum. Pellentesque dolor justo, suscipit nec turpis in, tempus aliquam nulla. Praesent pellentesque commodo sapien non iaculis.</p>
+                    <?php 
+                        global $simplefluid_options;
+                        $settings = get_option( 'simplefluid_options', $simplefluid_options );
+                    ?>
+                    <h1 class="logohead container">
+                    <a href="<?php echo site_url(); ?>">
+                    	<?php if($settings['header_title'] != '') {?>
+                    	<?php echo $settings['header_title']; } else { ?>Lorem Ipsum<?php } ?></a></h1>
+                        
+                    <p class="lang container">
+                    <?php if($settings['header_text'] != ''){ ?>
+                        <?php echo $settings['header_text']; } else { ?>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus pharetra bibendum. Pellentesque dolor justo, suscipit nec turpis in, tempus aliquam nulla. Praesent pellentesque commodo sapien non iaculis.<?php } ?></p>
                 </div>
             </header>
                 <section id="main-section" class="row">

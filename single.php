@@ -1,8 +1,8 @@
 <?php 
 /**
- * Index Template
+ * Single Template
  *
- * @file           index.php
+ * @file           single.php
  * @package        Sarasota
  * @author         Alexander Obi (DCI group)
  * @copyright      2013 DCI Group
